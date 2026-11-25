@@ -1969,7 +1969,7 @@ async function requestCoach(action,explanation=''){
 $('ai-key-form').onsubmit=event=>{
   event.preventDefault();
   const key=$('ai-key').value.trim();
-  if(!/^[A-Za-z0-9_-]{20,200}$/.test(key)){
+  if (!key || /\s/.test(key)) {
     $('ai-key-status').textContent='Paste a valid Gemini API key, then save.';
     return;
   }
